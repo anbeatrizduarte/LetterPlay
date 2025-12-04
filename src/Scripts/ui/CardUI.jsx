@@ -1,5 +1,6 @@
 import React from "react";
 import Typography from './TypographyUI';
+import iconStar from '/src/assets/Star.png';
 
 function CardUI({ infosGame, className = "" }) {
     if (!infosGame) return null;
@@ -18,8 +19,8 @@ function CardUI({ infosGame, className = "" }) {
                 </div>
 
                 <div id="avaliacaoJogo" className="bg-primary h-8 w-20 rounded-lg mt-6 flex relative -right-12">
-                    <img src="../src/assets/Star.png" alt="" className="h-5 m-1 pl-1 mt-1.5" />
-                    <Typography as="span" variant="default" className="text-md text-[#C8AEFF]  ">{infosGame.rating || "- "}</Typography>
+                    <img src={iconStar} alt="" className="h-5 m-1 pl-1 mt-1.5" />
+                    <Typography as="span" variant="default" className="text-md text-secondary ml-1 ">{infosGame.rating || "- "}</Typography>
                 </div>
 
             </div>

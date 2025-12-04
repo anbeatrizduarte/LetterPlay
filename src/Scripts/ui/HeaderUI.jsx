@@ -1,13 +1,17 @@
 import React from "react";
 import Typography from "./TypographyUI"
 import { Link } from "react-router-dom";
+import logo from '/src/assets/logo.png';
+import avatarPerfil from '/src/assets/GenericAvatar.png';
+
+
 
 function HeaderUI() {
     return (
         <header className=" h-28 rounded-b-xl mx-48 pt-8 flex justify-around">
             <Link to={"/"}>
                 <div id="divLogo" className="flex gap-4">
-                    <img src="../src/assets/logo.png" className="h-12"></img>
+                    <img src={logo} className="h-12"></img>
                     <Typography as="span" className="pt-2" variant="default">LetterPlay</Typography>
                 </div>
             </Link>
@@ -28,7 +32,7 @@ function HeaderUI() {
                     <Typography variant="default" className="text-lg">Noticias</Typography>
                 </Link>
                 <div id="divOptPerfil">
-                    <img src="../src/assets/GenericAvatar.png" alt="" className="h-12 -mt-2 cursor-pointer" />
+                    <img src={avatarPerfil} alt="" className="h-12 -mt-2 cursor-pointer" />
                 </div>
             </div>
 
