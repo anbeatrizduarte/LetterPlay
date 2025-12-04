@@ -11,7 +11,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/LetterPlay/">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/jogos" element={<LibraryGames />} />
