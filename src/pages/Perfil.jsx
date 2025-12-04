@@ -85,7 +85,7 @@ export function Perfil() {
 
             <OptLists />
 
-            <Popup isOpen={isPopUpOpen} onPopUpClick={fecharPopup}>
+            <Popup isOpen={isPopUpOpen} onPopUpClick={fecharPopup} className="bg-primary">
                 <h2 className="text-2xl mb-6 font-semibold">Editar Perfil</h2>
 
                 <div className="grid gap-6 text-left">

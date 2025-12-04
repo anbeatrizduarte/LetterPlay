@@ -5,6 +5,7 @@ export const gamesData = [
         name: "Resident Evil Archives: Resident Evil",
         summary: "Resident Evil Archives: Resident Evil is the port of the remake Resident Evil for the Wii console system.",
         cover_url: "https://images.igdb.com/igdb/image/upload/t_cover_big/co20cp.jpg",
+        cover_gif: "https://imgs.search.brave.com/zZDDrwM8n4xO-7yiegZRHxomNZMppyeOCgyvbrt8biw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9naWZk/Yi5jb20vaW1hZ2Vz/L2hpZ2gvcmVzaWRl/bnQtZXZpbC04LXZp/bGxhZ2UtbGFkeS03/Nm55YjJuYzZvMmw4/OHB3LmdpZg.gif",
         genres: ["Acao", "Terror"],
         genresGeral: "Todos",
         rating: 7.5,

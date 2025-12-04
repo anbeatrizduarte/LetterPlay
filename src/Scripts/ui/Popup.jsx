@@ -5,19 +5,18 @@ function Popup({ children, onPopUpClick, isOpen, className = "" }) {
         <div
             className={`
                 fixed inset-0 flex items-center justify-center bg-black/50
-                transition-all duration-200
+                transition-all duration-200 z-10
                 ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
             `}
         >
             <div
                 className={`
-                    bg-primary p-8 relative text-center rounded-xl 
-                    transition-all duration-200 text-text
+                    p-8 relative text-center rounded-xl 
+                    transition-all duration-200
                     ${isOpen ? "scale-100" : "scale-95"}
                     ${className}
                 `}
             >
-                <button onClick={onPopUpClick} className="absolute top-2 right-2 text-white">✕</button>
 
                 <div>
                     {children}

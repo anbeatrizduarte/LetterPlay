@@ -1,6 +1,7 @@
 import React from "react";
 import { TypographyUI, CardUI } from "../ui";
 import { gamesData } from "../api/igdbfake";
+import { Link } from "react-router-dom";
 
 function Ranking() {
     const sortedGames = [...gamesData]
@@ -19,7 +20,12 @@ function Ranking() {
                 {top3Games.map((game, index) => (
                     <div key={game.id} className="relative flex flex-col items-center">
 
-                        <CardUI infosGame={game} className="-ml-10" />
+                        <Link
+                            key={game.id}
+                            to="/aboutGame"
+                            state={{ infosGame: game }}
+                        >
+                            <CardUI infosGame={game} className="-ml-10" /> </Link>
                         <div className={`h-10 w-10 absolute right-32 z-10 rounded-md flex items-center justify-center ${index === 0
                             ? "bg-yellow-400"
                             : index === 1

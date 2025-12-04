@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { CardUI, TypographyUI } from "../ui";
 import { gamesData } from "../api/igdbfake";
+import { Link } from "react-router-dom";
+
 
 function FilterByGenre() {
     const [selectedGenre, setSelectedGenre] = useState("Todos");
@@ -21,11 +23,19 @@ function FilterByGenre() {
             </div>
 
             {filteredGames.length > 0 ? (
-                <div className="ml-32 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 justify-around"> {filteredGames.map((game) => (<CardUI key={game.id} infosGame={game} />
+                <div className="ml-32 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 justify-around"> {filteredGames.map((game) => (
+                    <Link
+                        key={game.id}
+                        to="/aboutGame"
+                        state={{ infosGame: game }}
+                    >
+                        <CardUI infosGame={game} />
+                    </Link>
+
                 ))}
                 </div>
             ) : (
-                <TypographyUI as="span">
+                <TypographyUI as="span" variant="muted" className="mt-64 ml-64">
                     Nenhum jogo encontrado para o gênero "{selectedGenre}".
                 </TypographyUI>
             )}
