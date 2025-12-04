@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "./TypographyUI"
 import { Link } from "react-router-dom";
 import logo from '/src/assets/logo.png';
 import avatarPerfil from '/src/assets/GenericAvatar.png';
+import BttOptPerfil from "./BttOptPerfil";
 
 
 
 function HeaderUI() {
+    const [popupProfileOpen, setPopupProfileOpen] = useState(false);
+
+    const togglePopup = () => {
+        setPopupProfileOpen(prev => !prev);
+    };
+
     return (
-        <header className=" h-28 rounded-b-xl mx-48 pt-8 flex justify-around">
+        <header className=" h-28 rounded-b-xl mx-48 pt-8 flex justify-around z-10 relative">
             <Link to={"/"}>
                 <div id="divLogo" className="flex gap-4">
                     <img src={logo} className="h-12"></img>
@@ -32,8 +39,10 @@ function HeaderUI() {
                     <Typography variant="default" className="text-lg">Noticias</Typography>
                 </Link>
                 <div id="divOptPerfil">
-                    <img src={avatarPerfil} alt="" className="h-12 -mt-2 cursor-pointer" />
+                    <button onClick={togglePopup}><img src={avatarPerfil} alt="" className="h-12 -mt-2 cursor-pointer" /></button>
                 </div>
+
+                <BttOptPerfil isOpen={popupProfileOpen} />
             </div>
 
 
