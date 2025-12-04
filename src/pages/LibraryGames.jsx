@@ -1,27 +1,17 @@
 import React from "react";
-import { HeaderUI, TypographyUI, CardUI } from '../Scripts/ui';
+import { HeaderUI, CardUI, TypographyUI, GameRanking, FilterByGenre } from '../Scripts/ui';
+import { gamesData } from '../Scripts/api/igdbfake';
 
 export function LibraryGames() {
     return (
-        <div className="w-full">
+        <div className="w-full min-h-[150vh]">
             <HeaderUI />
 
-            <div id="menuGenero" className="mt-12 ml-64 m-24">
+            <GameRanking />
 
-                <button className="border-2 border-white px-6 py-2 rounded-xl mx-2 cursor-pointer">Acao</button>
-                <button className="border-2 border-white px-6 py-2 rounded-xl mx-2 cursor-pointer">Acao</button>
-                <button className="border-2 border-white px-6 py-2 rounded-xl mx-2 cursor-pointer">Acao</button>
-
-            </div>
-
-            <div className="h-auto w-128">
-                <div id="cardJogos" className="ml-28 grid grid-cols-4 gap-16">
-                    <CardUI />
-                    <CardUI />
-                    <CardUI />
-                    <CardUI />
-                    <CardUI />
-                </div>
+            <div id="divBiblioteca">
+                <TypographyUI as="span" variant="titulo" className="block ml-64 mt-48 text-4xl"> Biblioteca </TypographyUI>
+                <FilterByGenre />
             </div>
 
         </div>
