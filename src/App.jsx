@@ -10,6 +10,8 @@ import { Perfil } from './pages/Perfil';
 import { AboutGame } from './pages/AboutGame';
 import { Register } from './pages/Register';
 import { Login } from './pages/Login';
+import { Lists } from './pages/Lists';
+import AboutList from "./pages/AboutList";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,6 +25,8 @@ function App() {
         <Route path="/aboutGame" element={<AboutGame />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/lists" element={<Lists />}></Route>
+        <Route path="/aboutlist" element={<AboutList />} />
       </Routes>
     </BrowserRouter>
   )
