@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logoGoogle from '/src/assets/logoGoogle.png';
 import logoSteam from '/src/assets/logoSteam.png';
 
-export function Register() {
+export function Login() {
 
     return (
 
@@ -15,20 +15,11 @@ export function Register() {
                 <div id="sideLeft" className="bg-gradient-to-r from-[#573798] to-[#1a0c36] h-screen w-1/2 rounded-r-2xl shadow-2xl shadow-black"></div>
 
                 <div id="sideRight" className=" w-1/2 h-full text-center mt-16">
-                    <TypographyUI as="span" variant="titulo" className="text-center text-5xl">Registre-se</TypographyUI>
+                    <TypographyUI as="span" variant="titulo" className="text-center text-5xl">Log-in</TypographyUI>
 
                     <div className="w-full flex flex-col items-center mt-24">
 
                         <div className="grid gap-12 w-full max-w-xl text-left">
-
-                            <div className="grid">
-                                <label className="mb-1 font-medium text-text-secondary">Nome do Perfil:</label>
-                                <input
-                                    type="text"
-                                    className="border border-gray-300 rounded-lg px-3 py-2 w-full text-black"
-                                    placeholder="Digite seu nome"
-                                />
-                            </div>
 
                             <div className="grid">
                                 <label className="mb-1 font-medium text-text-secondary">Nome de usuario (@):</label>
@@ -48,14 +39,6 @@ export function Register() {
                                 />
                             </div>
 
-                            <div className="grid">
-                                <label className="mb-1 font-medium text-text-secondary">Confirme sua senha:</label>
-                                <input
-                                    type="text"
-                                    className="border border-gray-300 rounded-lg px-3 py-2 w-full text-black"
-                                    placeholder="Confirme sua senha"
-                                />
-                            </div>
 
                         </div>
 
@@ -67,7 +50,7 @@ export function Register() {
                         <button className="mt-12 h-16 w-48 rounded-2xl bg-gradient-to-r from-violet-800 to-purple-900 transition delay-75 duration-300 ease-in-out shadow-shadowEffect
         hover:-translate-y-1 hover:scale-110 hover:shadow-[0_0_15px_rgba(139,92,246,0.5)]">
                             <Link to="/jogos">
-                                <TypographyUI as="span" variant="default" className="text-xl">Registrar</TypographyUI>
+                                <TypographyUI as="span" variant="default" className="text-xl">Logar</TypographyUI>
                             </Link>
                         </button>
 
@@ -85,12 +68,12 @@ export function Register() {
 
                     </div>
 
-
                     <div>
-                        <TypographyUI as="span" variant="muted">Você já possui uma conta?
-                            <Link to="/login" className="line-clamp-1 underline">   Fazer Log-in</Link>
+                        <TypographyUI as="span" variant="muted">Você ainda não possui uma conta?
+                            <Link to="/register" className="line-clamp-1 underline">   Fazer Registro</Link>
                         </TypographyUI>
                     </div>
+
                 </div>
 
 
