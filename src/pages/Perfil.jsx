@@ -5,7 +5,7 @@ import avatarPerfil from '/src/assets/GenericAvatar.png';
 import logo from '/src/assets/logo.png';
 import iconEdit from '/src/assets/edit.png'
 import { uploadProfilePicture } from "../Scripts/services/userService";
-import { getUserProfile, updateUser} from "../Scripts/services/userService";
+import { getUserProfile, updateUser, updateUserProfile } from "../Scripts/services/userService";
 
 
 function OptLists() {

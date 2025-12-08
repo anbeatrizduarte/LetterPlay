@@ -22,9 +22,9 @@ export const getUserProfile = async ( ) => {
 
 export const uploadProfilePicture = async (file) => {
     const formData = new FormData;
-    formData.append('profile_pic', file);
+    formData.append('profile_picture', file);
     try{
-        const response = await api.patch('/users/me/upload-pictures/', formData);
+        const response = await api.patch('/users/me/upload_picture/', formData);
         return response.data;
     } catch (error) {
         console.error("Erro ao enviar a foto de perfil", error);
@@ -32,7 +32,7 @@ export const uploadProfilePicture = async (file) => {
     }
 };
 
-export const updateUser = async (userId, dadosParaAtualizar) => {
+export const updateUserProfile = async (userId, dadosParaAtualizar) => {
     try {
         const response = await api.patch(`/users/atualizar/${userId}/`, dadosParaAtualizar);
         return response.data;
