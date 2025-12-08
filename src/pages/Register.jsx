@@ -1,10 +1,52 @@
 import { HeaderUI, TypographyUI, CardUI } from "../Scripts/ui";
 import logo from '/src/assets/logo.png';
-import { Link } from "react-router-dom";
+import React, { useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logoGoogle from '/src/assets/logoGoogle.png';
 import logoSteam from '/src/assets/logoSteam.png';
 
 export function Register() {
+
+    const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({
+        profileName: '',
+        username: '',
+        password: '',
+        confirmPassword: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleRegister = async (e) => {
+        e.preventDefault();
+
+        if (formData.password !== formData.confirmPassword) {
+            alert("As senhas não coincidem. Por favor, tente novamente.");
+            return;
+        }
+
+        const dadosParaEnviar = {
+            username: formData.profileName,
+            email: formData.email,
+            password: formData.password
+
+        };
+        try {
+            await registerUser(dadosParaEnviar);
+            alert("Conta criada com sucesso! Redirecionando para o login...");
+            navigate('/login');
+        }catch (error) {
+            console.error(error);
+            alert("Erro ao criar a conta. Por favor, tente novamente.");
+        }
+    };
+
 
     return (
 

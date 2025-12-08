@@ -1,10 +1,32 @@
 import { HeaderUI, TypographyUI, CardUI } from "../Scripts/ui";
 import logo from '/src/assets/logo.png';
-import { Link } from "react-router-dom";
+import React, { useState} from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { loginUser } from '../Scripts/services/authService';
+
 import logoGoogle from '/src/assets/logoGoogle.png';
 import logoSteam from '/src/assets/logoSteam.png';
 
 export function Login() {
+
+    const navigate = useNavigate();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handlelogin = async (e) => {
+        if (e) e.preventDefault();
+        console.log("Clique no botão de login");
+        console.log("Dados do login:", { username, password });
+        try {
+            console.log("Conectando ao backend...");
+            const response = await loginUser(username, password);
+            console.log("Login bem-sucedido:", response);
+            navigate('/');
+        }catch (error) {
+            console.error("Erro ao realizar o login:", error);
+            alert("Falha no login. Por favor, verifique suas credenciais e tente novamente.");
+        }
+    };
 
     return (
 
