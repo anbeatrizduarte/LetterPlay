@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HeaderUI, TypographyUI, Popup } from "../Scripts/ui";
 import imageBG from "../assets/image18.png";
 import avatarPerfil from '/src/assets/GenericAvatar.png';
 import logo from '/src/assets/logo.png';
 import iconEdit from '/src/assets/edit.png'
+import { uploadProfilePicture } from "../Scripts/services/userService";
+import { getUserProfile, updateUser, updateUserProfile } from "../Scripts/services/userService";
 
 
 function OptLists() {
@@ -51,8 +53,57 @@ export function Perfil() {
     }
 
     const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
 
-    const abrirPopup = () => setIsPopUpOpen(true);
+    const [user, setUser] = useState({
+        id: null,
+        username: '',
+        email: '',
+        profilePicture: ''
+    });
+
+    const [editForm, setEditForm] = useState({
+        username: '',
+        email: '',
+        file: null
+    });
+
+    useEffect(() => {
+        carregarDados();
+    }, []);
+
+    const carregarDados = async () => {
+        try {
+            const dados = await getUserProfile();
+            setUser(dados);
+            setEditForm({username: dados.username, email: dados.email, file: null});
+        } catch (error){
+            console.error("Erro ao carregar usuário", error);
+        } finally{
+            setLoading(false);
+        }
+    };
+
+    const handleSave = async () => {
+        try{
+            if(editForm.userame !== user.userame){
+                await updateUser(user.id, { username: editForm.username, email: editForm.email});
+            }
+            if(editForm.file){
+                await uploadProfilePicture(editForm.file);
+            }
+            alert("Perfil atualizado com sucesso!");
+            window.location.reload();
+        } catch (error) {
+            alert("Erro ao atualizar o perfil. Tente novamente.");
+        }
+    };
+    
+    
+
+    const abrirPopup = () => {
+        setEditForm({username: user.username, email: user.email, file: null});
+        setIsPopUpOpen(true);}
     const fecharPopup = () => setIsPopUpOpen(false);
 
     return (

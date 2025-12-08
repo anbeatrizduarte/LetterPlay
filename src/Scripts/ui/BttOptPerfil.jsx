@@ -22,6 +22,14 @@ const IconExit = (
 );
 
 function BttOptPerfil({ isOpen }) {
+
+    const handlelogout = () => {
+        localStorage.removeItem('@LetterPlay:token');
+        window.location.href = '/';
+    };
+
+    if (!isOpen) return null;
+
     return (
         <aside className={`
             w-48 flex flex-col gap-4 pt-4 mt-4 border border-bg-secondary rounded-xl shadow-sombra
