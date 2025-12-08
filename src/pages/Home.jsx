@@ -1,39 +1,8 @@
-import React, { useState, useEffect} from "react";
 import { HeaderUI, TypographyUI, CardUI } from "../Scripts/ui";
 import logo from '/src/assets/logo.png';
 import { Link } from "react-router-dom";
-import { getUserProfile, uploadProfilePicture } from "../Scripts/services/userService";
+
 export function Home() {
-
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        const fetchDados = async () => {
-            try {
-                const dados = await getUserProfile();
-                setUser(dados);
-            } catch (error) {
-                console.error("Erro ao carregar usuário", error);
-                setUser(null);
-            }
-        };
-        fetchDados();
-    }, []);
-
-    const handePhotoChange = async (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            try {
-                await uploadProfilePicture(file);
-                const dadosAtualizados = await getUserProfile();
-                setUser(dadosAtualizados);
-                alert("Foto de perfil atualizada com sucesso!");
-            } catch (error) {
-                alert("Erro ao atualizar a foto de perfil. Tente novamente.");
-            }
-        }
-    };
-
     return (
         <>
             <div className="bg-[url('../src/assets/backgroundHome.png')] bg-cover bg-center h-screen">

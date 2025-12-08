@@ -9,36 +9,3 @@ export const registerUser = async (userData) => {
         throw error;
     }
 };
-
-export const getUserProfile = async ( ) => {
-    try {
-        const response = await api.get('/users/me/');
-        return response.data;
-    } catch (error) {
-        console.error("Erro ao buscar o perfil do usuario", error);
-        throw error;
-    }
-};
-
-export const uploadProfilePicture = async (file) => {
-    const formData = new FormData;
-    formData.append('profile_picture', file);
-    try{
-        const response = await api.patch('/users/me/upload_picture/', formData);
-        return response.data;
-    } catch (error) {
-        console.error("Erro ao enviar a foto de perfil", error);
-        throw error;
-    }
-};
-
-export const updateUserProfile = async (userId, dadosParaAtualizar) => {
-    try {
-        const response = await api.patch(`/users/atualizar/${userId}/`, dadosParaAtualizar);
-        return response.data;
-    } catch (error) {
-        console.error("Erro ao tentar atualizar o perfil do usuario", error);
-        throw error;
-    }
-    
-};
