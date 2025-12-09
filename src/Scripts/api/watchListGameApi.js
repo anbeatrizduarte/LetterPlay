@@ -1,30 +1,37 @@
-import { api } from "./api";
+import api from "./api";
 
 export function addGameToWatchlist(watchlist_id, igdb_game_id) {
-  return api(`/watchlists/games/adicionar/${watchlist_id}`, {
-    method: "POST",
-    body: JSON.stringify({ igdb_game_id }),
-  });
+  return api
+    .post(`/watchlists/games/adicionar/${watchlist_id}`, {
+      igdb_game_id,
+    })
+    .then((r) => r.data);
 }
 
 export function addGameToFavorites(igdb_game_id) {
-  return api(`/watchlists/favoritos/adicionar-jogo`, {
-    method: "POST",
-    body: JSON.stringify({ igdb_game_id }),
-  });
+  return api
+    .post(`/watchlists/favoritos/adicionar-jogo`, {
+      igdb_game_id,
+    })
+    .then((r) => r.data);
 }
 
 export function removeGame(watchlist_id, game_id) {
-  return api(`/watchlists/${watchlist_id}/games/${game_id}`, { method: "DELETE" });
+  return api
+    .delete(`/watchlists/${watchlist_id}/games/${game_id}`)
+    .then((r) => r.data);
 }
 
 export function removeFromFavorites(game_id) {
-  return api(`/watchlists/favoritos/remover-jogo/${game_id}`, { method: "DELETE" });
+  return api
+    .delete(`/watchlists/favoritos/remover-jogo/${game_id}`)
+    .then((r) => r.data);
 }
 
 export function updateGameStatus(watchlist_id, game_id, new_status) {
-  return api(`/watchlists/${watchlist_id}/games/${game_id}/status`, {
-    method: "PATCH",
-    body: JSON.stringify({ new_status }),
-  });
+  return api
+    .patch(`/watchlists/${watchlist_id}/games/${game_id}/status`, {
+      new_status,
+    })
+    .then((r) => r.data);
 }
